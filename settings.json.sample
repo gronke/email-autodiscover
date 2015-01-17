@@ -1,0 +1,21 @@
+{
+  "info": {
+    "name": "{{$COMPANY_NAME}}",
+    "url": "{{$SUPPORT_URL}}",
+    "domain": "{{$DOMAIN}}"
+  },
+  "server": {
+    "imap": {
+      "host": "{{$IMAP_HOST}}",
+      "port": {{$IMAP_PORT}},
+      "socket": "SSL"
+    },
+    "smtp": {
+      "host": "{{$SMTP_HOST}}",
+      "port": {{$SMTP_PORT}},
+      "socket": "SSL"
+    },
+    "domain_required": true
+  },
+  "ttl": 168
+}
