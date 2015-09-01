@@ -12,7 +12,7 @@ You need an Apache webserver with PHP5 preconfigures. You can then configure you
 
 ```
 <VirtualHost *:443>
-  ServerName autodisvocer.{{$DOMAIN}}
+  ServerName autodiscover.{{$DOMAIN}}
   ServerAlias autodiscover.{{$DOMAIN}} autoconfig.{{$DOMAIN}}
 
   <Location />
