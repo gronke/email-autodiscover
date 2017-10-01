@@ -5,7 +5,10 @@ RewriteBase /
 RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
 RewriteRule ^(.*)$ - [E=BASE:%1]
 
-#RewriteCond %{REQUEST_FILENAME} -f 
+RewriteCond %{QUERY_STRING} ^(emailaddress)=(.*)$
+RewriteRule ^mail/(.*)$ %{ENV:BASE}autodiscover.xml.php?template=config-v1.1.xml&email=%2 [L]
+
+#RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^mail/(.*)$ %{ENV:BASE}autodiscover.xml.php?template=config-v1.1.xml&email=$1 [L]
 
 #RewriteRule ^(.*)/?mail/(.*)$ info.php [L]
