@@ -16,7 +16,8 @@ $xml = str_replace("%INFO/DOMAIN%", $config['info']['domain'], $xml);
 $xml = str_replace("%TTL%", $config['ttl'], $xml);
 
 
-$xml = str_replace("%SERVER/SMTP/SSL_ON%", isOnOrOff($config['server']['smtp']['socket'] == "SSL"), $xml);
+$xml = str_replace("%SERVER/SMTP/ENCRYPTION%", str_replace("STARTTLS", "TLS", $config['server']['smtp']['socket']), $xml);
+
 $xml = str_replace("%SERVER/IMAP/SSL_ON%", isOnOrOff($config['server']['imap']['socket'] == "SSL"), $xml);
 
 $xml = str_replace("%SERVER/IMAP/DOMAIN_REQUIRED%", isOnOrOff($config['server']['domain_required']), $xml);

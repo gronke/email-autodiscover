@@ -150,7 +150,7 @@ If this value is true, then the SMTP server requires that email be downloaded be
   <Port>%SERVER/SMTP/PORT%</Port>
   <DomainRequired>%SERVER/SMTP/DOMAIN_REQUIRED%</DomainRequired>
   <SPA>off</SPA>
-  <SSL>%SERVER/SMTP/SSL_ON%</SSL>
+  <Encryption>%SERVER/SMTP/ENCRYPTION%</Encryption>
   <AuthRequired>on</AuthRequired>
   <UsePOPAuth>on</UsePOPAuth>
   <SMTPLast>off</SMTPLast>
