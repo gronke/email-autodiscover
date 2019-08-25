@@ -16,7 +16,8 @@ $xml = str_replace("%INFO/DOMAIN%", $config['info']['domain'], $xml);
 $xml = str_replace("%TTL%", $config['ttl'], $xml);
 
 
-$xml = str_replace("%SERVER/SMTP/SSL_ON%", isOnOrOff($config['server']['smtp']['socket'] == "SSL"), $xml);
+$xml = str_replace("%SERVER/SMTP/ENCRYPTION%", str_replace("STARTTLS", "TLS", $config['server']['smtp']['socket']), $xml);
+
 $xml = str_replace("%SERVER/IMAP/SSL_ON%", isOnOrOff($config['server']['imap']['socket'] == "SSL"), $xml);
 
 $xml = str_replace("%SERVER/IMAP/DOMAIN_REQUIRED%", isOnOrOff($config['server']['domain_required']), $xml);
@@ -55,16 +56,24 @@ function isOnOrOff ($value) {
 }
 
 function loadConfig () {
-  return json_decode(implode('', file('settings.json')), true);
+  $content = file_get_contents('settings.json');
+  if ($content === FALSE) {
+    throw new Exception('Error reading settings.json.');
+  }
+  return json_decode($content, true, 512, JSON_THROW_ON_ERROR);
 }
 
 function loadTemplate ($file) {
-  return implode("",file($file));
+  $content = file_get_contents($file);
+  if ($content === FALSE) {
+    throw new Exception('Error reading template file.');
+  }
+  return $content;
 }
 
 function determineTemplateFile () {
 
-  $template = array_key_exists('template', $_GET) ? $_GET['template'] : null;
+  $template = $_GET['template'] ?? null;
   
   switch($template) {
 
@@ -84,7 +93,7 @@ function determineTemplateFile () {
 
 function getRequestEmail () {
 
-  $email = array_key_exists('email', $_GET) ? $_GET['email'] : null;
+  $email = $_GET['email'] ?? null;
   return filter_var($email, FILTER_VALIDATE_EMAIL);
 
 }

@@ -8,7 +8,7 @@ Installation
 
 ### Apache Webserver
 
-You need an Apache webserver with PHP5 preconfigures. You can then configure your Virtual Host like this
+You need an Apache webserver with (at least) PHP 7.3 preconfigured. You can then configure your Virtual Host like this
 
 ```
 <VirtualHost *:443>
