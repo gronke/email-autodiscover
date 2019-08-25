@@ -56,11 +56,19 @@ function isOnOrOff ($value) {
 }
 
 function loadConfig () {
-  return json_decode(implode('', file('settings.json')), true);
+  $content = file_get_contents('settings.json');
+  if ($content === FALSE) {
+    throw new Exception('Error reading settings.json.');
+  }
+  return json_decode($content, true, 512, JSON_THROW_ON_ERROR);
 }
 
 function loadTemplate ($file) {
-  return implode("",file($file));
+  $content = file_get_contents($file);
+  if ($content === FALSE) {
+    throw new Exception('Error reading template file.');
+  }
+  return $content;
 }
 
 function determineTemplateFile () {
