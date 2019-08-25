@@ -73,7 +73,7 @@ function loadTemplate ($file) {
 
 function determineTemplateFile () {
 
-  $template = array_key_exists('template', $_GET) ? $_GET['template'] : null;
+  $template = $_GET['template'] ?? null;
   
   switch($template) {
 
@@ -93,7 +93,7 @@ function determineTemplateFile () {
 
 function getRequestEmail () {
 
-  $email = array_key_exists('email', $_GET) ? $_GET['email'] : null;
+  $email = $_GET['email'] ?? null;
   return filter_var($email, FILTER_VALIDATE_EMAIL);
 
 }
