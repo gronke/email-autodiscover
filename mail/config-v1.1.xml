@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<--
+    See docs:
+    * https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Autoconfiguration
+    * https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Autoconfiguration/FileFormat/HowTo
+    * https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat
+-->
 <clientConfig version="1.1">
   <emailProvider id="%INFO/DOMAIN%">
     <domain>%INFO/DOMAIN%</domain>
