@@ -13,3 +13,6 @@ RewriteRule ^mail/(.*)$ %{ENV:BASE}autodiscover.xml.php?template=config-v1.1.xml
 
 #RewriteRule ^(.*)/?mail/(.*)$ info.php [L]
 RewriteRule ^(.*)/?autodiscover\.xml$ autodiscover.xml.php [L]
+RewriteRule ^(.*)/?Autodiscover\.xml$ autodiscover.xml.php [L]
+
+RewriteRule ^(ios|apple)$ ios.php [L]
