@@ -4,6 +4,11 @@
     "url": "{{$SUPPORT_URL}}",
     "domain": "{{$DOMAIN}}"
   },
+  "sign": {
+    "enabled": true,
+    "keypath": "/sample/domain.key",
+    "crtpath": "/sample/domain.crt"
+  },
   "server": {
     "imap": {
       "host": "{{$IMAP_HOST}}",
